@@ -23,9 +23,26 @@ on E.DEP_ID = D.DEPT_ID_DEP
 ----- Ex 2 b -------
 select E.EMP_ID, E.L_NAME, E.DEP_ID, D.DEP_NAME
 from EMPLOYEES as E
-join DEPARTMENTS as D
+inner join DEPARTMENTS as D
 on E.DEP_ID = D.DEPT_ID_DEP
 where YEAR(E.B_DATE) < 1980
 
------ Ex 3 a -------
+----- Ex 2 c -------
+select E.EMP_ID, E.L_NAME, E.DEP_ID, D.DEP_NAME
+from EMPLOYEES as E
+left outer join DEPARTMENTS as D
+on E.DEP_ID = D.DEPT_ID_DEP
+and YEAR(E.B_DATE) < 1980
 
+----- Ex 3 a -------
+select E.F_NAME, E.L_NAME, D.DEP_NAME
+from EMPLOYEES as E
+full join DEPARTMENTS as D
+on E.DEP_ID = D.DEPT_ID_DEP
+
+----- Ex 3 b -------
+select E.F_NAME, E.L_NAME, E.DEP_ID, D.DEP_NAME
+from EMPLOYEES as E
+full join DEPARTMENTS as D
+on E.DEP_ID = D.DEPT_ID_DEP
+and E.SEX = 'M'
