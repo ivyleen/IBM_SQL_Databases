@@ -15,4 +15,17 @@ on E.JOB_ID = J.JOB_IDENT
 where E.DEP_ID = 5
 
 ----- Ex 2 a -------
+select E.EMP_ID, E.L_NAME, E.DEP_ID, D.DEP_NAME
+from EMPLOYEES as E
+left outer join DEPARTMENTS as D
+on E.DEP_ID = D.DEPT_ID_DEP
+
+----- Ex 2 b -------
+select E.EMP_ID, E.L_NAME, E.DEP_ID, D.DEP_NAME
+from EMPLOYEES as E
+join DEPARTMENTS as D
+on E.DEP_ID = D.DEPT_ID_DEP
+where YEAR(E.B_DATE) < 1980
+
+----- Ex 3 a -------
 
